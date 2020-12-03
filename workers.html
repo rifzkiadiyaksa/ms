@@ -49,7 +49,7 @@
 
     <div class="mdui-appbar">
         <div class="mdui-toolbar" style="width: 85%; margin: auto">
-            <img class="mdui-img-fluid" src="https://i.loli.net/2020/04/21/ST9ru5mwVqUXnKO.png" alt="">
+            <img class="mdui-img-fluid" src="https://cdn2.rifzki.my.id/logo-mikrosoft.png" alt="">
             <span class="mdui-typo-display-1 mdui-hidden-xs">|</span>
             <span class="mdui-typo-title mdui-hidden-xs">Office 365</span>
             <div class="mdui-toolbar-spacer mdui-hidden-xs"></div>
@@ -63,12 +63,12 @@
             <div class="mdui-center mdui-typo-display-3">${line1}</div>
             <div class="mdui-typo-title-opacity">${line2}</div>
             <br>
-            <button class="mdui-btn mdui-btn-raised mdui-ripple mdui-color-red mdui-m-a-1 hero-btn" id="getOffice">获取 Office</button>
-            <button class="mdui-btn mdui-btn-raised mdui-ripple mdui-color-white mdui-m-a-1 hero-btn" onclick="window.location.href='https://office.com/login'">登录</button>
+            <button class="mdui-btn mdui-btn-raised mdui-ripple mdui-color-red mdui-m-a-1 hero-btn" id="getOffice">Buat Akun</button>
+            <button class="mdui-btn mdui-btn-raised mdui-ripple mdui-color-white mdui-m-a-1 hero-btn" onclick="window.location.href='https://office.com/login'">Masuk</button>
         </div>
 
         <div class="enroll-mdui-dialog mdui-dialog enroll mdui-col-xs-10 mdui-col-offset-xs-1 mdui-col-md-8 mdui-col-offset-md-2 mdui-shadow-8" id="enroll">
-            <div class="mdui-typo-title">获取账号</div>
+            <div class="mdui-typo-title">Formulir Akun</div>
             <hr><br>
 
             <form>
@@ -76,17 +76,17 @@
                 <div class="mdui-col-md-6 mdui-col-offset-md-3 mdui-col-xs-12" style="display: none" id="createdAccount">
                     <div class="mdui-textfield">
                         <i class="mdui-icon material-icons mdui-text-color-pink">email</i>
-                        <p>邮箱：</p>
+                        <p>Email：</p>
                         <input class="mdui-textfield-input" type="email" value="" id="email">
                     </div>
                     <div class="mdui-textfield">
                         <i class="mdui-icon material-icons mdui-text-color-pink">lock</i>
-                        <p>初始密码：</p>
+                        <p>Kata Sandi：</p>
                         <input class="mdui-textfield-input" type="text" value="" id="password">
                     </div>
                     <br>
                     <br>
-                    <a class="mdui-btn mdui-btn-raised mdui-ripple mdui-text-color-yellow mdui-color-pink" href="https://office.com/login" target="_blank" style="float: right">前往登录</a>
+                    <a class="mdui-btn mdui-btn-raised mdui-ripple mdui-text-color-yellow mdui-color-green" href="https://office.com/login" target="_blank" style="float: right">Massuk</a>
                     <div style="clear: both"></div>
                 </div>
 
@@ -95,26 +95,26 @@
                 </div>
 
                 <div class="mdui-col-xs-12 mdui-col-md-6" id="accountInfo">
-                    <div class="mdui-typo-subheading">账号信息：</div>
+                    <div class="mdui-typo-subheading">Informasi Akun：</div>
                     <br>
                     <div class="mdui-col-xs-12">
-                        <span>订阅：</span>
+                        <span>Pilih Lisensi：</span>
                         <select class="mdui-select" name="subscription" mdui-select id="subscription">
                             ${subscriptions}
                         </select>
                     </div>
                     <div class="mdui-textfield mdui-textfield-floating-label mdui-col-xs-12">
-                        <label class="mdui-textfield-label">姓名</label>
+                        <label class="mdui-textfield-label">Nama</label>
                         <input class="mdui-textfield-input" type="text" maxlength="20" required id="displayname" name="displayname">
-                        <div class="mdui-textfield-error">用户名仅限中文/英文/数字</div>
-                        <div class="mdui-textfield-helper">账号展示的姓名</div>
+                        <div class="mdui-textfield-error">Nama pengguna dibatasi</div>
+                        <div class="mdui-textfield-helper">Nama Akun</div>
                     </div>
                     <div class="email mdui-col-xs-12">
                         <div class="mdui-textfield mdui-textfield-floating-label" style="width: 100%">
-                            <label class="mdui-textfield-label">用户名</label>
+                            <label class="mdui-textfield-label">username</label>
                             <input class="mdui-textfield-input" type="text" maxlength="20" required id="username" name="username" pattern="^[A-Za-z0-9]+$">
-                            <div class="mdui-textfield-error">邮箱前缀仅限英文/数字</div>
-                            <div class="mdui-textfield-helper">邮箱 @ 前面的字符</div>
+                            <div class="mdui-textfield-error">Diperbolehkan menggunakan angka</div>
+                            <div class="mdui-textfield-helper">Contoh rifzki2@staff.rifzki.my.id</div>
                         </div>
                         <span class="mdui-hidden-xs">&nbsp;&nbsp;&nbsp;</span>
                         <select class="mdui-select" mdui-select style="margin-bottom: 28px; color: black" name="domain" id="domain">
@@ -127,16 +127,16 @@
                 </div>
 
                 <div class="mdui-col-xs-12 mdui-col-md-5 mdui-col-offset-md-1" id="activation">
-                    <div class="mdui-typo-subheading">激活信息：</div>
+                    <div class="mdui-typo-subheading">Informasi akun：</div>
 
                     <div class="mdui-col-xs-12 code">
                         <div class="mdui-textfield mdui-textfield-floating-label" style="width: 100%">
-                            <label class="mdui-textfield-label">激活码</label>
+                            <label class="mdui-textfield-label">Kode aktivasi</label>
                             <input class="mdui-textfield-input" type="text" required id="code" name="code">
-                            <div class="mdui-textfield-error">必填</div>
+                            <div class="mdui-textfield-error">Wajib diisi</div>
                         </div>
                         <span>&nbsp;&nbsp;&nbsp;</span>
-                        <button class="mdui-btn mdui-color-pink mdui-ripple" style="margin-bottom: 28px; padding: 0" onclick="window.open('${code_store_link}')">获取激活码</button>
+                        <button class="mdui-btn mdui-color-pink mdui-ripple" style="margin-bottom: 28px; padding: 0" onclick="window.open('${code_store_link}')">Dapatkan Kode</button>
                     </div>
 
                     <div class="mdui-col-xs-12">
