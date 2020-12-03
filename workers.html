@@ -9,41 +9,41 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/mdui/0.4.3/css/mdui.min.css">
     <script src="https://recaptcha.net/recaptcha/api.js" async defer></script>
     <style>
-        @media screen and (max-width:600px){.mdui-toolbar>img{margin:auto}.hero>.mdui-typo-display-3{font-size:27px}.hero>.mdui-typo-title-opacity{font-size:15px}.enroll{padding:40px 15px!important}.email{display:block!important}}@media screen and (min-width:600px){.enroll{padding:50px 40px!important}}.enroll-daftar{max-width:inherit;overflow-x:hidden;overflow-y:scroll}.hero-bg{background:url(https://i.loli.net/2020/01/25/KEScJXCBfAzaIjW.png) no-repeat;background-size:cover;height:100vh;overflow:scroll}.hero-btn{width:120px;height:45px}.enroll{background-color:#fff;position:absolute;color:#000;padding:60px 60px 100px 60px;display:none}.code,.email{display:flex;align-items:flex-end;justify-content:space-between}
+        @media screen and (max-width:600px){.mdui-toolbar>img{margin:auto}.hero>.mdui-typo-display-3{font-size:27px}.hero>.mdui-typo-title-opacity{font-size:15px}.enroll{padding:40px 15px!important}.email{display:block!important}}@media screen and (min-width:600px){.enroll{padding:50px 40px!important}}.enroll-mdui-dialog{max-width:inherit;overflow-x:hidden;overflow-y:scroll}.hero-bg{background:url(https://i.loli.net/2020/01/25/KEScJXCBfAzaIjW.png) no-repeat;background-size:cover;height:100vh;overflow:scroll}.hero-btn{width:120px;height:45px}.enroll{background-color:#fff;position:absolute;color:#000;padding:60px 60px 100px 60px;display:none}.code,.email{display:flex;align-items:flex-end;justify-content:space-between}
     </style>
 </head>
 
 <body>
 
-    <div class="daftar" id="notice">
-        <div class="daftar-title">Pengumuman</div>
-        <div class="daftar-content">${notice}</div>
-        <div class="daftar-actions">
-            <button class="mdui-btn mdui-ripple" daftar-confirm>Tutup</button>
+    <div class="mdui-dialog" id="notice">
+        <div class="mdui-dialog-title">Pengumuman</div>
+        <div class="mdui-dialog-content">${notice}</div>
+        <div class="mdui-dialog-actions">
+            <button class="mdui-btn mdui-ripple" mdui-dialog-confirm>Tutup</button>
         </div>
     </div>
 
-    <div class="daftar" id="usernameExists">
-        <div class="daftar-title">Gagal...</div>
-        <div class="daftar-content">Nama pengguna sudah ada, coba lainnya！</div>
-        <div class="daftar-actions">
-            <button class="mdui-btn mdui-ripple" daftar-confirm>Coba Kembali</button>
+    <div class="mdui-dialog" id="usernameExists">
+        <div class="mdui-dialog-title">Gagal...</div>
+        <div class="mdui-dialog-content">Nama pengguna sudah ada, coba lainnya！</div>
+        <div class="mdui-dialog-actions">
+            <button class="mdui-btn mdui-ripple" mdui-dialog-confirm>Coba Kembali</button>
         </div>
     </div>
     
-    <div class="daftar" id="wrongRecaptcha">
-        <div class="daftar-title">Gagal...</div>
-        <div class="daftar-content">Kesalahan Captcha！</div>
-        <div class="daftar-actions">
-            <button class="mdui-btn mdui-ripple" daftar-confirm>Saya mengerti</button>
+    <div class="mdui-dialog" id="wrongRecaptcha">
+        <div class="mdui-dialog-title">Gagal...</div>
+        <div class="mdui-dialog-content">Kesalahan Captcha！</div>
+        <div class="mdui-dialog-actions">
+            <button class="mdui-btn mdui-ripple" mdui-dialog-confirm>Saya mengerti</button>
         </div>
     </div>
     
-    <div class="daftar" id="invalidCode">
-        <div class="daftar-title">Gagal...</div>
-        <div class="daftar-content">Kode Tidak Valid！</div>
-        <div class="daftar-actions">
-            <button class="mdui-btn mdui-ripple" daftar-confirm>Ulangi</button>
+    <div class="mdui-dialog" id="invalidCode">
+        <div class="mdui-dialog-title">Gagal...</div>
+        <div class="mdui-dialog-content">Kode Tidak Valid！</div>
+        <div class="mdui-dialog-actions">
+            <button class="mdui-btn mdui-ripple" mdui-dialog-confirm>Ulangi</button>
         </div>
     </div>
 
@@ -67,7 +67,7 @@
             <button class="mdui-btn mdui-btn-raised mdui-ripple mdui-color-white mdui-m-a-1 hero-btn" onclick="window.location.href='https://office.com/login'">Masuk</button>
         </div>
 
-        <div class="enroll-daftar daftar enroll mdui-col-xs-10 mdui-col-offset-xs-1 mdui-col-md-8 mdui-col-offset-md-2 mdui-shadow-8" id="enroll">
+        <div class="enroll-mdui-dialog mdui-dialog enroll mdui-col-xs-10 mdui-col-offset-xs-1 mdui-col-md-8 mdui-col-offset-md-2 mdui-shadow-8" id="enroll">
             <div class="mdui-typo-title">Formulir Akun</div>
             <hr><br>
 
@@ -155,7 +155,7 @@
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/mdui/0.4.3/js/mdui.min.js"></script>
     <script>
-        var $$=mdui.JQ;$$(document).ready(function(){""!=$$("#notice>.daftar-content").html()&&new mdui.Dialog("#notice", {history: false}).open()});var enroll=new mdui.Dialog("#enroll",{modal:!0});$$("#getOffice").on("click",function(e){enroll.open()}),$$("form").on("submit",function(e){e.preventDefault();var a={subscription:$$("#subscription").val(),displayname:$$("#displayname").val().trim(),username:$$("#username").val().trim(),domain:$$("#domain").val(),code:$$("#code").val().trim(),grecaptcha_token:grecaptcha.getResponse()};$$("#accountInfo, #activation").hide(),$$(".mdui-progress").show(),$$(".enroll").height("auto"),$$("hr").hide(),mdui.mutation(),$$.ajax({method:"POST",url:"/mscreate",data:JSON.stringify(a),contentType:"application/json",success:function(e){var a=JSON.parse(e);switch($$(".mdui-progress").hide(),$$("hr").show(),a.stat){case"success":$$("#createdAccount").show(),$$("#email").val(a.email),$$("#password").val(a.password);break;case"username exists":$$("#accountInfo, #activation").show(),enroll.close(),new mdui.Dialog("#usernameExists").open();break;case"wrong recaptcha":$$("#accountInfo, #activation").show(),enroll.close(),new mdui.Dialog("#wrongRecaptcha").open();break;case"invalid code":$$("#accountInfo, #activation").show(),enroll.close(),new mdui.Dialog("#invalidCode").open();break;default:enroll.close(),mdui.alert(e)}$$("#displayname").val(""),$$("#username").val(""),$$("#code").val(""),grecaptcha.reset(),$$(".enroll").height("auto")}})});
+        var $$=mdui.JQ;$$(document).ready(function(){""!=$$("#notice>.mdui-dialog-content").html()&&new mdui.Dialog("#notice", {history: false}).open()});var enroll=new mdui.Dialog("#enroll",{modal:!0});$$("#getOffice").on("click",function(e){enroll.open()}),$$("form").on("submit",function(e){e.preventDefault();var a={subscription:$$("#subscription").val(),displayname:$$("#displayname").val().trim(),username:$$("#username").val().trim(),domain:$$("#domain").val(),code:$$("#code").val().trim(),grecaptcha_token:grecaptcha.getResponse()};$$("#accountInfo, #activation").hide(),$$(".mdui-progress").show(),$$(".enroll").height("auto"),$$("hr").hide(),mdui.mutation(),$$.ajax({method:"POST",url:"/mscreate",data:JSON.stringify(a),contentType:"application/json",success:function(e){var a=JSON.parse(e);switch($$(".mdui-progress").hide(),$$("hr").show(),a.stat){case"success":$$("#createdAccount").show(),$$("#email").val(a.email),$$("#password").val(a.password);break;case"username exists":$$("#accountInfo, #activation").show(),enroll.close(),new mdui.Dialog("#usernameExists").open();break;case"wrong recaptcha":$$("#accountInfo, #activation").show(),enroll.close(),new mdui.Dialog("#wrongRecaptcha").open();break;case"invalid code":$$("#accountInfo, #activation").show(),enroll.close(),new mdui.Dialog("#invalidCode").open();break;default:enroll.close(),mdui.alert(e)}$$("#displayname").val(""),$$("#username").val(""),$$("#code").val(""),grecaptcha.reset(),$$(".enroll").height("auto")}})});
     </script>
 </body>
 
